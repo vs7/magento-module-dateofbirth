@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+        <reference name="head">
+            <action method="addItem"><type>skin_css</type><name>vs7_dateofbirth/vs7_dateofbirth.css</name></action>
+        </reference>
+    </default>
+    <vs7_dateofbirth_index_index>
+        <reference name="content">
+            <block type="vs7_dateofbirth/index" name="vs7_dateofbirth.index" template="vs7_dateofbirth/index.phtml">
+                <block type="alyaka/featured_product_slider" name="featured_product_slider" template="featured/product/slider.phtml">
+                    <block type="core/text_list" name="product_list.name.after" as="name.after" />
+                </block>
+            </block>
+        </reference>
+    </vs7_dateofbirth_index_index>
+    <vs7_dateofbirth_index_save>
+        <update handle="vs7_dateofbirth_index_index" />
+    </vs7_dateofbirth_index_save>
+</layout>

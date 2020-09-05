@@ -1,0 +1,16 @@
+<div class="vs7_dateofbirth-index">
+    <form method="post" id="vs7_dateofbirth-form" action="<?php echo $this->getUrl('*/*/save'); ?>">
+        <div class="vs7_dateofbirth-form">
+            <input type="text" class="vs7_dateofbirth-firstname" name="vs7_dateofbirth-firstname" value="<?php echo $this->getFirstname();?>" placeholder="<?php echo $this->__('FIRST NAME'); ?>" />
+            <br />
+            <?php $_dob = $this->getLayout()->createBlock('customer/widget_dob') ?>
+            <?php echo $_dob->setDate($this->getDateOfBirth())->toHtml(); ?>
+            <button type="submit" class="vs7_dateofbirth-submit"><span><span><?php echo $this->__('Submit'); ?></span></span></button>
+            <input type="hidden" name="vs7_dateofbirth-email" value="<?php echo $this->getEmail();?>" />
+        </div>
+    </form>
+</div>
+<div class="vs7_dateofbirth__whats-new whats-new">
+    <h2 class="section-title"><?php echo $this->__('FEATURED PRODUCTS'); ?></h2>
+    <?php echo $this->getChildHtml('featured_product_slider'); ?>
+</div>

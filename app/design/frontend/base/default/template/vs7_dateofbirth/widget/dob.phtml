@@ -1,0 +1,113 @@
+<?php
+$maxYear = date('Y');
+$minYear = $maxYear - 110;
+?>
+<label class="vs7_dateofbirth-label<?php if ($this->isRequired()) echo ' required' ?>"><?php echo $this->__('Birth Date') ?><?php if (!$this->isRequired()) : ?> <span class="optional">(Optional)</span><?php endif;?></label>
+<div class="vs7_dateofbirth-container">
+    <div class="custom-select vs7_dateofbirth-date vs7_dateofbirth-date--day">
+        <select name="day"<?php if ($this->isRequired()) echo ' required="required"' ?>>
+            <option value="" selected><?php echo $this->__('DAY');?></option>
+            <?php for($i=1;$i<=31;$i++):?>
+                <option value="<?php echo $i;?>"><?php echo $i;?></option>
+            <?php endfor;?>
+        </select>
+    </div>
+    <div class="custom-select vs7_dateofbirth-date vs7_dateofbirth-date--month">
+        <select name="month"<?php if ($this->isRequired()) echo ' required="required"' ?>>
+            <option value="" selected><?php echo $this->__('MONTH');?></option>
+            <?php for($i=1;$i<=12;$i++):?>
+                <option value="<?php echo $i;?>"><?php echo $i;?></option>
+            <?php endfor;?>
+        </select>
+    </div>
+    <div class="custom-select vs7_dateofbirth-date vs7_dateofbirth-date--year">
+        <select name="year"<?php if ($this->isRequired()) echo ' required="required"' ?>>
+            <option value="" selected><?php echo $this->__('YEAR');?></option>
+            <?php for($i=$maxYear;$i>=$minYear;$i--):?>
+                <option value="<?php echo $i;?>"><?php echo $i;?></option>
+            <?php endfor;?>
+        </select>
+    </div>
+    <input type="hidden" name="vs7_dateofbirth-dob" value="<?php echo $this->getDate();?>" />
+    <input type="hidden" name="dob" />
+</div>
+<script>
+(function ($, window, document, undefined) {
+    function getDay()
+    {
+        return $('select[name=day]').find(':selected').val();
+    }
+
+    function getMonth()
+    {
+        return $('select[name=month]').find(':selected').val();
+    }
+
+    function getYear()
+    {
+        return $('select[name=year]').find(':selected').val();
+    }
+
+    function setDays()
+    {
+        var day = getDay();
+        var daysInMonth = new Date(getYear(), getMonth(), 0).getDate();
+        if (daysInMonth == 31) {
+            $('select[name=day] option[value="29"]').show();
+            $('select[name=day] option[value="30"]').show();
+            $('select[name=day] option[value="31"]').show();
+        } else if (daysInMonth == 30) {
+            if (day >= 31) {
+                $('select[name=day]').val(1);
+            }
+            $('select[name=day] option[value="29"]').show();
+            $('select[name=day] option[value="30"]').show();
+            $('select[name=day] option[value="31"]').hide();
+        } else if (daysInMonth == 29) {
+            if (day >= 30) {
+                $('select[name=day]').val(1);
+            }
+            $('select[name=day] option[value="29"]').show();
+            $('select[name=day] option[value="30"]').hide();
+            $('select[name=day] option[value="31"]').hide();
+        } else if (daysInMonth == 28) {
+            if (day >= 29) {
+                $('select[name=day]').val(1);
+            }
+            $('select[name=day] option[value="29"]').hide();
+            $('select[name=day] option[value="30"]').hide();
+            $('select[name=day] option[value="31"]').hide();
+        }
+    }
+
+    function setDates()
+    {
+        var dob = $('input[name=vs7_dateofbirth-dob]').val();
+        if (dob) {
+            var date = new Date(dob);
+            $('select[name=day]').val(date.getDate());
+            $('select[name=month]').val(date.getMonth()+1);
+            $('select[name=year]').val(date.getFullYear());
+        }
+    }
+
+    function setDob()
+    {
+        var dobElm = $('input[name=dob]');
+        var day = $('select[name=day]').val();
+        var month = $('select[name=month]').val();
+        var year = $('select[name=year]').val();
+        dobElm.val(day + '/' + month + '/' + year);
+    }
+
+    $(document).on('ready', function () {
+        setDates();
+        setDays();
+
+        $('.vs7_dateofbirth-date select').on('change', function(){
+            setDays();
+            setDob();
+        });
+    });
+}(jQuery, window, document));
+</script>

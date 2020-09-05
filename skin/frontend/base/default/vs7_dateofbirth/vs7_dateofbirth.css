@@ -1,0 +1,144 @@
+.vs7_dateofbirth-index {
+    background: url(bg.jpg) no-repeat calc(50% - 7px) top;
+    min-height: 588px;
+    padding-top: 43px;
+    margin: 10px 0 0 0;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: center;
+}
+
+.vs7_dateofbirth-index .vs7_dateofbirth-form {
+    width: 370px;
+    height: 499px;
+    padding-top: 206px;
+    text-align: center;
+}
+
+.vs7_dateofbirth-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.vs7_dateofbirth-container > div {
+    width: 32%;
+}
+
+.vs7_dateofbirth-index .vs7_dateofbirth-firstname {
+    color: #999999 !important;
+    font-family: "Sackers Gothic Std - Heavy" !important;;
+    font-size: 18px !important;;
+    font-weight: bold;
+    line-height: 24px;
+    text-transform: uppercase;
+    border: 1px solid #000 !important;;
+    height: 72px !important;;
+    width: 100%;
+    padding: 0 !important;;
+    text-align: center;
+    margin-bottom: 21px !important;
+}
+
+.vs7_dateofbirth-index .vs7_dateofbirth-firstname::placeholder {
+    color: #999999 !important;
+    font-family: "Sackers Gothic Std - Heavy" !important;;
+    font-size: 18px !important;;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.vs7_dateofbirth-index .custom-select.vs7_dateofbirth-date select {
+    color: #999999;
+    font-family: "Sackers Gothic Std - Heavy";
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 19.19px;
+    text-transform: uppercase;
+    height: 57px;
+    border: 1px solid #000;
+}
+
+.vs7_dateofbirth-index .custom-select.vs7_dateofbirth-date select:focus {
+    border: 1px solid #000;
+}
+
+.vs7_dateofbirth-index .custom-select.vs7_dateofbirth-date::after {
+    width: 0;
+    height: 0;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 10px solid #e44ca0;
+    margin-top: -6px;
+    margin-right: -5px;
+}
+
+.vs7_dateofbirth-index .vs7_dateofbirth-submit {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    background: none;
+    border: 0;
+    color: inherit;
+    /* cursor: default; */
+    font: inherit;
+    line-height: normal;
+    overflow: visible;
+    padding: 0;
+    -webkit-appearance: button; /* for input */
+    -webkit-user-select: none; /* for button */
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.vs7_dateofbirth-index .vs7_dateofbirth-submit::-moz-focus-inner,
+.vs7_dateofbirth-index .vs7_dateofbirth-submit::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+.vs7_dateofbirth-index .vs7_dateofbirth-form > .vs7_dateofbirth-submit {
+    color: #fff;
+    font-family: "Sackers Gothic Std - Heavy";
+    font-size: 25px;
+    font-weight: bold;
+    line-height: 24.1px;
+    text-transform: uppercase;
+    width: 224px;
+    height: 73px;
+    background: #000;
+    margin-top: 25px;
+}
+
+.vs7_dateofbirth-index .vs7_dateofbirth-submit > span {
+    background: url(button-arrow.png) no-repeat right center;
+    padding-right: 25px;
+}
+
+@media only screen and (max-width: 375px) {
+    .vs7_dateofbirth-index .vs7_dateofbirth-form {
+        width: auto;
+    }
+}
+
+.vs7_dateofbirth-index .vs7_dateofbirth__whats-new {
+    margin-top: 15px;
+}
+
+.vs7_dateofbirth__whats-new.whats-new .section-title {
+    border-top: 2px solid #999999;
+}
+
+.vs7_dateofbirth-index .vs7_dateofbirth-label {
+    display: none;
+}
+
+.vs7_dateofbirth-label .optional {
+    color: #b7b6b6;
+    font-family: "Arial MT";
+    font-weight: 400;
+    font-style: italic;
+    text-transform: lowercase;
+}
